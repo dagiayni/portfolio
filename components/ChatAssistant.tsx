@@ -306,14 +306,21 @@ export default function ChatAssistant() {
             {/* Chat Modal */}
             <AnimatePresence>
                 {isOpen && (
-                    <div className="fixed inset-0 z-[9997] flex items-center justify-center pointer-events-none md:pointer-events-auto">
+                    <div className="fixed inset-0 z-[9997] flex items-end justify-end pointer-events-none md:pointer-events-auto">
                         {/* Overlay */}
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             onClick={() => setIsOpen(false)}
-                            className="absolute inset-0 bg-black/40 backdrop-blur-sm pointer-events-auto"
+                            className="absolute inset-0 bg-black/60 backdrop-blur-md pointer-events-auto hidden md:block"
+                        />
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setIsOpen(false)}
+                            className="absolute inset-0 bg-white pointer-events-auto md:hidden"
                         />
 
                         {/* Chat Window */}
@@ -322,8 +329,9 @@ export default function ChatAssistant() {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 20, scale: 0.95 }}
                             className={cn(
-                                "relative pointer-events-auto flex flex-col bg-white overflow-hidden shadow-2xl",
-                                "w-[90vw] h-[70vh] max-w-[400px] max-h-[620px] rounded-2xl md:rounded-3xl"
+                                "relative pointer-events-auto flex flex-col bg-white overflow-hidden shadow-2xl transition-all",
+                                "w-full h-full md:w-[400px] md:h-[80vh] md:max-h-[620px] md:rounded-3xl",
+                                "rounded-none md:mb-6 md:mr-6"
                             )}
                         >
                             {/* Header */}
@@ -365,7 +373,13 @@ export default function ChatAssistant() {
 
                                 <button
                                     onClick={() => setIsOpen(false)}
-                                    className="p-2 hover:bg-white/10 rounded-full transition-colors text-white"
+                                    className="p-2 hover:bg-white/10 rounded-full transition-colors text-white md:hidden"
+                                >
+                                    <X size={24} />
+                                </button>
+                                <button
+                                    onClick={() => setIsOpen(false)}
+                                    className="p-2 hover:bg-white/10 rounded-full transition-colors text-white hidden md:block"
                                 >
                                     <X size={20} />
                                 </button>
