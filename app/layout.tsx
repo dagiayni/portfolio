@@ -19,12 +19,12 @@ const secondaryFont = Instrument_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Systems Builder | Software Platforms & Infrastructure",
+  title: "DAGIM AYNADIS | Systems Builder & Software Architect",
   description: "I design and build systems that solve real-world problems. Software platforms, operational infrastructure, and scalable digital experiences.",
-  keywords: ["Systems Builder", "Software Infrastructure", "Platform Engineering", "System Design"],
-  authors: [{ name: "Systems Builder" }],
+  keywords: ["Dagim Aynadis", "Systems Builder", "Software Infrastructure", "Platform Engineering", "System Design"],
+  authors: [{ name: "Dagim Aynadis" }],
   openGraph: {
-    title: "Systems Builder Portfolio",
+    title: "DAGIM AYNADIS | Systems Builder Portfolio",
     description: "Designing and delivering complex software platforms and operational systems.",
     type: "website",
   },

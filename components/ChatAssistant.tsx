@@ -68,7 +68,7 @@ export default function ChatAssistant() {
                 const spoken = transcriptRef.current.trim();
                 if (spoken) {
                     transcriptRef.current = ""; // clear ref before sending
-                    handleSendMessageRef.current(spoken);
+                    handleSendMessageRef.current(spoken, true);
                 }
             };
 
@@ -117,7 +117,7 @@ export default function ChatAssistant() {
 
     // Keep a stable ref to handleSendMessage so recognition.onend can call it
     // without closing over a stale version
-    const handleSendMessageRef = useRef<(text: string) => void>(() => { });
+    const handleSendMessageRef = useRef<(text?: string, shouldSpeak?: boolean) => void>(() => { });
 
     // ─── VOICE OUTPUT ─────────────────────────────────────────────────────────
     const speakText = useCallback((text: string) => {
@@ -220,7 +220,7 @@ export default function ChatAssistant() {
     };
 
     // ─── SEND MESSAGE ─────────────────────────────────────────────────────────
-    const handleSendMessage = useCallback(async (overrideText?: string) => {
+    const handleSendMessage = useCallback(async (overrideText?: string, shouldSpeak: boolean = false) => {
         const textToSend = (overrideText ?? inputValue).trim();
         if (!textToSend || isLoading) return;
 
@@ -258,8 +258,8 @@ export default function ChatAssistant() {
                     timestamp: new Date(),
                 };
                 setMessages((prev) => [...prev, botResponse]);
-                // Speak the response if voice is enabled
-                speakText(data.response);
+                // Speak the response ONLY if this was a voice interaction
+                if (shouldSpeak) speakText(data.response);
             } else {
                 const errorMessage: Message = {
                     id: Date.now() + 1,
@@ -281,7 +281,7 @@ export default function ChatAssistant() {
             setIsLoading(false);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [speakText]);
+    }, [speakText, inputValue, isLoading, isListening]);
 
     // Keep ref pointing to latest handleSendMessage
     useEffect(() => {
@@ -451,7 +451,7 @@ export default function ChatAssistant() {
                                 <form
                                     onSubmit={(e) => {
                                         e.preventDefault();
-                                        handleSendMessage();
+                                        handleSendMessage(undefined, false);
                                     }}
                                     className="flex items-center gap-2 bg-[#F9F9F9] p-2 rounded-2xl border border-[#EEEEEE] focus-within:border-[#111111] transition-all"
                                 >
@@ -490,9 +490,7 @@ export default function ChatAssistant() {
                                         <Send size={18} />
                                     </button>
                                 </form>
-                                <div className="mt-2 text-[9px] text-center text-[#999999] font-bold uppercase tracking-widest opacity-50">
-                                    Powered by Groq AI
-                                </div>
+
                             </div>
                         </motion.div>
                     </div>
