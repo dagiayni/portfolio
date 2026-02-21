@@ -93,12 +93,22 @@ export default function ChatAssistant() {
         scrollToBottom();
     }, [messages, isOpen, isLoading]);
 
-    // Stop speaking when chat closes
+    // Stop speaking and lock scroll when chat opens/closes
     useEffect(() => {
         if (!isOpen && synthRef.current) {
             synthRef.current.cancel();
             setIsSpeaking(false);
         }
+
+        if (isOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+
+        return () => {
+            document.body.style.overflow = "unset";
+        };
     }, [isOpen]);
 
     // ─── VOICE INPUT ─────────────────────────────────────────────────────────
@@ -306,32 +316,24 @@ export default function ChatAssistant() {
             {/* Chat Modal */}
             <AnimatePresence>
                 {isOpen && (
-                    <div className="fixed inset-0 z-[9997] flex items-end justify-end pointer-events-none md:pointer-events-auto">
+                    <div className="fixed inset-0 z-[9997] flex items-center justify-center p-4">
                         {/* Overlay */}
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             onClick={() => setIsOpen(false)}
-                            className="absolute inset-0 bg-black/60 backdrop-blur-md pointer-events-auto hidden md:block"
-                        />
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            onClick={() => setIsOpen(false)}
-                            className="absolute inset-0 bg-white pointer-events-auto md:hidden"
+                            className="absolute inset-0 bg-black/60 backdrop-blur-md"
                         />
 
                         {/* Chat Window */}
                         <motion.div
-                            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+                            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.9, y: 20 }}
                             className={cn(
-                                "relative pointer-events-auto flex flex-col bg-white overflow-hidden shadow-2xl transition-all",
-                                "w-full h-full md:w-[400px] md:h-[80vh] md:max-h-[620px] md:rounded-3xl",
-                                "rounded-none md:mb-6 md:mr-6"
+                                "relative flex flex-col bg-white overflow-hidden shadow-2xl transition-all",
+                                "w-[calc(100%-2rem)] max-w-[500px] h-[80vh] max-h-[700px] rounded-[2rem] sm:rounded-[2.5rem]"
                             )}
                         >
                             {/* Header */}
@@ -373,15 +375,10 @@ export default function ChatAssistant() {
 
                                 <button
                                     onClick={() => setIsOpen(false)}
-                                    className="p-2 hover:bg-white/10 rounded-full transition-colors text-white md:hidden"
+                                    className="p-2 hover:bg-white/10 rounded-full transition-colors text-white"
+                                    aria-label="Close chat"
                                 >
-                                    <X size={24} />
-                                </button>
-                                <button
-                                    onClick={() => setIsOpen(false)}
-                                    className="p-2 hover:bg-white/10 rounded-full transition-colors text-white hidden md:block"
-                                >
-                                    <X size={20} />
+                                    <X size={22} />
                                 </button>
                             </div>
 
@@ -437,7 +434,7 @@ export default function ChatAssistant() {
                             </div>
 
                             {/* Input Area */}
-                            <div className="p-4 border-t border-[#EEEEEE] bg-white">
+                            <div className="p-4 pb-8 sm:pb-4 border-t border-[#EEEEEE] bg-white">
                                 {/* Listening indicator */}
                                 <AnimatePresence>
                                     {isListening && (
@@ -474,7 +471,7 @@ export default function ChatAssistant() {
                                         value={inputValue}
                                         onChange={(e) => setInputValue(e.target.value)}
                                         placeholder={isListening ? "Listening..." : "Type or speak..."}
-                                        className="flex-1 bg-transparent border-none focus:ring-0 text-sm py-2 px-3 text-[#111111] outline-none"
+                                        className="flex-1 bg-transparent border-none focus:ring-0 text-sm py-2 px-2 text-[#111111] outline-none min-w-0"
                                     />
 
                                     {/* Mic button — only shown if browser supports it */}

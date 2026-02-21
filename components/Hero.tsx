@@ -45,7 +45,7 @@ export default function Hero() {
                             Selected Work
                         </Link>
                         <Link
-                            href="/contact"
+                            href="/#contact"
                             className="px-8 py-4 border border-[#EEEEEE] text-[#111111] rounded-full font-bold text-center hover:bg-[#F9F9F9] transition-all duration-200"
                         >
                             Contact Me

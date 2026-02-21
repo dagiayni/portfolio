@@ -3,10 +3,7 @@
 import { usePathname } from "next/navigation";
 
 export default function Footer() {
-    const pathname = usePathname();
     const currentYear = new Date().getFullYear();
-
-    if (pathname === "/contact") return null;
 
     return (
         <footer className="py-12 border-t border-[#EEEEEE] bg-white text-[#666666]">
@@ -19,7 +16,7 @@ export default function Footer() {
                     <a href="/#work" className="hover:text-[#111111] transition-colors">Work</a>
                     <a href="/#systems" className="hover:text-[#111111] transition-colors">Systems</a>
                     <a href="/about" className="hover:text-[#111111] transition-colors">About</a>
-                    <a href="/contact" className="hover:text-[#111111] transition-colors">Contact</a>
+                    <a href="/#contact" className="hover:text-[#111111] transition-colors">Contact</a>
                 </div>
 
                 <div className="text-[10px] uppercase tracking-[0.2em] font-bold text-[#CCCCCC]">
