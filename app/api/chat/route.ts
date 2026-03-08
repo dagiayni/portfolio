@@ -2,6 +2,8 @@ import Groq from "groq-sdk";
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import { unhash } from "@/lib/security";
+
 
 // ─── INTENT DETECTION ─────────────────────────────────────────────────────────
 function detectIntent(message: string): string {
@@ -118,7 +120,7 @@ export async function POST(req: Request) {
             );
         }
 
-        const groq = new Groq({ apiKey });
+        const groq = new Groq({ apiKey: unhash(apiKey) });
 
         // Detect intent
         const intent = detectIntent(message);

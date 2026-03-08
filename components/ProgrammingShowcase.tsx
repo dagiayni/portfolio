@@ -3,12 +3,14 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { X } from "lucide-react";
 import { programmingProjects } from "@/data/programmingProjects";
 import { cn } from "@/lib/utils";
 
 export default function ProgrammingShowcase() {
     const containerRef = useRef<HTMLDivElement>(null);
     const [activeIndex, setActiveIndex] = useState(0);
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -49,36 +51,48 @@ export default function ProgrammingShowcase() {
                                     className="w-full h-full grid grid-cols-2 gap-3 lg:gap-4"
                                 >
                                     {/* Vertical Image (Left) */}
-                                    <div className="relative rounded-2xl overflow-hidden border border-[#EEEEEE] shadow-sm row-span-2 h-full">
+                                    <div
+                                        className="relative rounded-2xl overflow-hidden border border-[#EEEEEE] shadow-sm row-span-2 h-full cursor-zoom-in group"
+                                        onClick={() => setSelectedImage(programmingProjects[activeIndex].images.vertical)}
+                                    >
                                         <Image
                                             src={programmingProjects[activeIndex].images.vertical}
                                             alt="Vertical view"
                                             fill
-                                            className="object-cover"
+                                            className="object-cover transition-transform duration-500 group-hover:scale-105"
                                             priority
                                         />
+                                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />
                                     </div>
 
                                     {/* Horizontal Image 1 (Top Right) */}
-                                    <div className="relative rounded-2xl overflow-hidden border border-[#EEEEEE] shadow-sm h-full">
+                                    <div
+                                        className="relative rounded-2xl overflow-hidden border border-[#EEEEEE] shadow-sm h-full cursor-zoom-in group"
+                                        onClick={() => setSelectedImage(programmingProjects[activeIndex].images.horizontal1)}
+                                    >
                                         <Image
                                             src={programmingProjects[activeIndex].images.horizontal1}
                                             alt="Horizontal view 1"
                                             fill
-                                            className="object-cover"
+                                            className="object-cover transition-transform duration-500 group-hover:scale-105"
                                             priority
                                         />
+                                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />
                                     </div>
 
                                     {/* Horizontal Image 2 (Bottom Right) */}
-                                    <div className="relative rounded-2xl overflow-hidden border border-[#EEEEEE] shadow-sm h-full">
+                                    <div
+                                        className="relative rounded-2xl overflow-hidden border border-[#EEEEEE] shadow-sm h-full cursor-zoom-in group"
+                                        onClick={() => setSelectedImage(programmingProjects[activeIndex].images.horizontal2)}
+                                    >
                                         <Image
                                             src={programmingProjects[activeIndex].images.horizontal2}
                                             alt="Horizontal view 2"
                                             fill
-                                            className="object-cover"
+                                            className="object-cover transition-transform duration-500 group-hover:scale-105"
                                             priority
                                         />
+                                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />
                                     </div>
                                 </motion.div>
                             </AnimatePresence>
@@ -118,6 +132,46 @@ export default function ProgrammingShowcase() {
                     </div>
                 </div>
             </div>
+
+            {/* Image Preview Modal */}
+            <AnimatePresence>
+                {selectedImage && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setSelectedImage(null)}
+                        className="fixed inset-0 z-[10000] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-12 cursor-zoom-out"
+                    >
+                        <motion.button
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors"
+                            onClick={() => setSelectedImage(null)}
+                        >
+                            <X size={32} />
+                        </motion.button>
+
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                            className="relative w-full h-full max-w-[1200px] max-h-[80vh]"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <Image
+                                src={selectedImage}
+                                alt="Preview"
+                                fill
+                                className="object-contain"
+                                quality={100}
+                                priority
+                            />
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 }

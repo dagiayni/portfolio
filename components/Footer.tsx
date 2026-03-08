@@ -20,7 +20,7 @@ export default function Footer() {
                 </div>
 
                 <div className="text-[10px] uppercase tracking-[0.2em] font-bold text-[#CCCCCC]">
-                    Designed for Excellence
+                    Engineering for Production
                 </div>
             </div>
         </footer>

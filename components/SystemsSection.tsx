@@ -4,22 +4,22 @@ import { Server, Database, Shield } from "lucide-react";
 
 const systems = [
     {
-        title: "Platform Infrastructure",
-        description: "Architecting cloud-native foundations that support million-user scales with automated recovery and intelligent scaling.",
+        title: "AI & Logic Integration",
+        description: "Implementing specialized AI components into existing application architectures to automate decision-making and enhance user interaction.",
         icon: Server,
-        visual: "infrastructure-mesh",
+        visual: "intelligence-module",
     },
     {
-        title: "Data Pipelines",
-        description: "Designing real-time event processing architectures that transform raw streams into actionable operational intelligence.",
+        title: "Full-Stack Architecture",
+        description: "Engineering resilient backend structures and performant frontend systems, ensuring seamless data flow and component modularity.",
         icon: Database,
-        visual: "data-flow",
+        visual: "system-architecture",
     },
     {
-        title: "Security & Resilience",
-        description: "Implementing zero-trust security layers and disaster recovery protocols to ensure business continuity in any scenario.",
+        title: "Operational Resilience",
+        description: "Designing the technical infrastructure and logic required to support large-scale real-world usage and high-traffic event platforms.",
         icon: Shield,
-        visual: "security-layers",
+        visual: "resilience-logic",
     }
 ];
 
@@ -32,7 +32,7 @@ export default function SystemsSection() {
                         Systems Thinking
                     </h2>
                     <p className="text-3xl md:text-5xl font-bold tracking-tighter text-[#111111] max-w-2xl">
-                        Beyond the interface, <br /> designing the core.
+                        Engineering logic, <br /> implementing scale.
                     </p>
                 </div>
 

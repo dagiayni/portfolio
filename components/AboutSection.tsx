@@ -14,30 +14,30 @@ export default function AboutSection() {
                                 Who I Am
                             </h2>
                             <h3 className="text-4xl md:text-5xl font-bold tracking-tighter text-[#111111]">
-                                Bridging Management <br /> & Development.
+                                Systems Engineering <br /> & Implementation.
                             </h3>
                         </div>
 
                         <div className="space-y-6 text-xl text-[#666666] leading-relaxed font-medium">
                             <p>
-                                I am a systems-oriented professional with a strong foundation in Computer Science and a practical mastery of project orchestration and team leadership.
+                                I build production-ready systems that integrate complex logic with scalable architecture. With a technical foundation in Computer Science, I focus on engineering solutions that handle real-world operational demands.
                             </p>
                             <p>
-                                My experience spans from coordinating large-scale international cultural summits like Africa Celebrates 2025 to architecting technical support platforms for aspiring developers. I thrive when managing the "impossible" logistics of complex events and digital ecosystems.
+                                My experience ranges from architecting technical support platforms to orchestrating the operational infrastructure for large-scale international summits. I specialize in designing and implementing the backend logic and frontend interfaces that power resilient digital ecosystems.
                             </p>
                             <p>
-                                Skilled in SQL, Python, C#, and full-stack development (MERN), I bring a technical lens to marketing and operational challenges, ensuring every system I build is both efficient and scalable.
+                                I engineer full-stack applications using TypeScript, Python, and SQL, with a specific focus on integrating AI functionality into functional system architectures to automate workflows and enhance system intelligence.
                             </p>
                         </div>
 
                         <div className="pt-6 grid grid-cols-2 gap-8 border-t border-[#EEEEEE]">
                             <div>
                                 <h4 className="text-[#111111] font-bold mb-2">Philosophy</h4>
-                                <p className="text-sm text-[#999999]">Integrity in coordination. Scalability in execution. Clarity in communication.</p>
+                                <p className="text-sm text-[#999999]">Technical precision. Scalable logic. Operational resilience.</p>
                             </div>
                             <div>
                                 <h4 className="text-[#111111] font-bold mb-2">Capabilities</h4>
-                                <p className="text-sm text-[#999999]">Operational Infrastructure, Team Leadership, Full-Stack Systems, Strategic Marketing.</p>
+                                <p className="text-sm text-[#999999]">Full-Stack Engineering, AI System Integration, Backend Architecture, Operational Infrastructure.</p>
                             </div>
                         </div>
                     </div>

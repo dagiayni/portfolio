@@ -41,7 +41,7 @@ export default function ContactSection() {
                                 Reach Out
                             </h2>
                             <p className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-[#111111] leading-[0.9]">
-                                Let’s architect <br className="hidden md:block" /> your next system.
+                                Let’s implement <br className="hidden md:block" /> your next system.
                             </p>
                         </div>
 

@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import LogoCloud from "@/components/LogoCloud";
 import ProgrammingShowcase from "@/components/ProgrammingShowcase";
 import WorkSection from "@/components/WorkSection";
 import SystemsSection from "@/components/SystemsSection";
@@ -11,7 +12,7 @@ export default function Home() {
       <Hero />
       <ProgrammingShowcase />
       <WorkSection />
-      <SystemsSection />
+      <LogoCloud />
       <AboutSection />
       <ContactSection />
     </>

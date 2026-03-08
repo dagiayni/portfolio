@@ -1,7 +1,7 @@
 export interface ProgrammingProject {
     id: string;
     title: string;
-    type: "Web App" | "Landing Page" | "Mobile App";
+    type: string;
     description: string;
     images: {
         horizontal1: string;
@@ -13,99 +13,63 @@ export interface ProgrammingProject {
 
 export const programmingProjects: ProgrammingProject[] = [
     {
-        id: "hotel-management-system",
-        title: "Eco-Stay Management",
-        type: "Web App",
-        description: "Operational platform managing reservations, availability, and customer lifecycle for high-end hospitality.",
+        id: "sowirad-hotel",
+        title: "Sowirad Hotel Management",
+        type: "WEB APP",
+        description: "Operational platform managing reservations, room availability, guest records, and administrative workflows. Built to support real hotel operations with structured backend logic, database coordination, and integrated communication handling.",
         images: {
-            horizontal1: "/images/img7.png",
-            horizontal2: "/images/img8.png",
-            vertical: "/images/img6.png",
+            horizontal1: "/images/sowirad2.png",
+            horizontal2: "/images/sowirad3.png",
+            vertical: "/images/sowirad1.png",
         },
-        technologies: ["Next.js", "PostgreSQL", "Prisma", "Tailwind"],
+        technologies: ["PHP", "C#", "MySQL", "Next.js", "Tailwind", "TypeScript"],
     },
     {
-        id: "financial-dashboard",
-        title: "Quantum Ledger",
-        type: "Web App",
-        description: "Real-time financial tracking and analytics engine for enterprise-level transaction monitoring.",
+        id: "click-market",
+        title: "Click Market Platform",
+        type: "MOBILE & WEB SYSTEM",
+        description: "Multi-platform commerce system including mobile application and administrative portal. Supports product management, user accounts, and centralized operational control through connected backend services and structured data handling.",
         images: {
-            horizontal1: "/images/img8.png",
-            horizontal2: "/images/img9.png",
-            vertical: "/images/img6.png",
+            horizontal1: "/images/ECM2.png",
+            horizontal2: "/images/ECM3.png",
+            vertical: "/images/ECM1.png",
         },
-        technologies: ["React", "D3.js", "Node.js", "Redis"],
+        technologies: ["Flutter", "Next.js", "Tailwind", "TypeScript", "PHP", "MySQL", "SMTP"],
     },
     {
-        id: "logistics-vanguard",
-        title: "Vanguard Logistics",
-        type: "Web App",
-        description: "Supply chain orchestration system facilitating cross-border operational synchronization.",
+        id: "digital-menu",
+        title: "Digital Menu Management",
+        type: "WEB APP",
+        description: "Dynamic menu platform allowing real-time updates, administrative control, and structured content delivery. Built with backend management tools enabling organizations to maintain and publish menu data efficiently.",
         images: {
-            horizontal1: "/images/img9.png",
-            horizontal2: "/images/img7.png",
-            vertical: "/images/img6.png",
+            horizontal1: "/images/DM2.png",
+            horizontal2: "/images/DM3.png",
+            vertical: "/images/DM1.png",
         },
-        technologies: ["TypeScript", "Python", "Docker", "AWS"],
+        technologies: ["PHP", "MySQL", "Next.js", "Tailwind", "TypeScript"],
     },
     {
-        id: "media-agency-landing",
-        title: "Kendil Media",
-        type: "Landing Page",
-        description: "Bilingual immersive experience for a modern media agency, focusing on visual excellence.",
+        id: "event-registration",
+        title: "Event Registration Platform",
+        type: "WEB APP",
+        description: "Registration system handling participant data collection, administrative visibility, and automated email coordination. Designed to support structured event workflows and user lifecycle management.",
         images: {
-            horizontal1: "/images/img2.png",
-            horizontal2: "/images/img3.png",
-            vertical: "/images/img6.png",
+            horizontal1: "/images/ER2.png",
+            horizontal2: "/images/ER3.png",
+            vertical: "/images/ER1.png",
         },
-        technologies: ["Next.js", "Framer Motion", "Tailwind"],
+        technologies: ["PHP", "MySQL", "Next.js", "Tailwind", "TypeScript", "SMTP"],
     },
     {
-        id: "resilience-summit-page",
-        title: "Resilience Summit",
-        type: "Landing Page",
-        description: "Dynamic event hub for international cultural summits, managing visibility and engagement.",
+        id: "ncm-website",
+        title: "Next Change Makers",
+        type: "WEBSITE",
+        description: "Public-facing organizational website built to communicate programs, structure, and activities. Designed and deployed for production use with focus on clarity, accessibility, and performance.",
         images: {
-            horizontal1: "/images/img3.png",
-            horizontal2: "/images/img2.png",
-            vertical: "/images/img6.png",
+            horizontal1: "/images/NCM2.png",
+            horizontal2: "/images/NCM3.png",
+            vertical: "/images/NCM1.png",
         },
-        technologies: ["Next.js", "Tailwind", "CSS Grid"],
-    },
-    {
-        id: "infrastructure-showcase",
-        title: "Nexus Infrastructure",
-        type: "Landing Page",
-        description: "Detailed system architecture presentation for cloud orchestration platforms.",
-        images: {
-            horizontal1: "/images/img4.png",
-            horizontal2: "/images/img5.png",
-            vertical: "/images/img6.png",
-        },
-        technologies: ["Three.js", "Next.js", "Tailwind"],
-    },
-    {
-        id: "ops-blueprint",
-        title: "Operations Blueprint",
-        type: "Landing Page",
-        description: "Clean, architectural showcase for operational consultancy and digital transformation.",
-        images: {
-            horizontal1: "/images/img5.png",
-            horizontal2: "/images/img4.png",
-            vertical: "/images/img6.png",
-        },
-        technologies: ["HTML", "Vanilla CSS", "JavaScript"],
-    },
-    {
-        id: "field-nexus-mobile",
-        title: "Field Nexus",
-        type: "Mobile App",
-        description: "Secure connectivity and data collection tool for remote field operations.",
-        images: {
-            horizontal1: "/images/img6.png",
-            horizontal2: "/images/img7.png",
-            vertical: "/images/img1.png",
-        },
-        technologies: ["React Native", "Firebase", "SQLite"],
+        technologies: ["Next.js", "HTML", "CSS", "TypeScript"],
     }
 ];

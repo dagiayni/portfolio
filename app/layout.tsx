@@ -3,7 +3,6 @@ import { Inter, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import VideoLoader from "@/components/VideoLoader";
 import ChatAssistant from "@/components/ChatAssistant";
 
 const primaryFont = Inter({
@@ -40,7 +39,6 @@ export default function RootLayout({
       <body
         className={`${primaryFont.variable} ${secondaryFont.variable} font-sans antialiased bg-white text-[#111111]`}
       >
-        <VideoLoader />
         <Navbar />
         <main className="min-h-screen">
           {children}

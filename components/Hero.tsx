@@ -30,11 +30,11 @@ export default function Hero() {
                     </div>
 
                     <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter leading-[1] lg:leading-[0.9] text-[#111111]">
-                        I architect <br className="hidden lg:block" /> systems & teams.
+                        Architecting <br className="hidden lg:block" /> systems & logic.
                     </h1>
 
                     <p className="text-base md:text-xl text-[#666666] max-w-lg mx-auto lg:mx-0 font-medium leading-relaxed">
-                        Bridging technical execution with strategic project management. Designing the operational infrastructure that powers large-scale events and digital platforms.
+                        Engineering full-stack production platforms and integrating AI into functional system architectures. Bridging technical design with operational execution.
                     </p>
 
                     <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 justify-center lg:justify-start pt-4 lg:pt-2">
